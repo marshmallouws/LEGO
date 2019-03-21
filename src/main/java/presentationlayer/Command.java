@@ -1,6 +1,7 @@
 package presentationlayer;
 
 import functionlayer.LoginSampleException;
+import functionlayer.OrderException;
 import java.util.HashMap;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -13,6 +14,7 @@ abstract class Command {
         commands = new HashMap<>();
         commands.put("login", new Login());
         commands.put("register", new Register());
+        commands.put("order", new OrderCommand());
     }
 
     static Command from(HttpServletRequest request) {
@@ -24,6 +26,6 @@ abstract class Command {
     }
 
     abstract String execute(HttpServletRequest request, HttpServletResponse response)
-            throws LoginSampleException;
+            throws LoginSampleException, OrderException;
 
 }

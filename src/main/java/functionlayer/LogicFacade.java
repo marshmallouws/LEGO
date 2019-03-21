@@ -14,4 +14,8 @@ public class LogicFacade {
     public static User createUser(String email, String password) throws LoginSampleException {
         return MapperFacade.createUser(email, password);
     }
+    
+    public static Order createOrder(User user, int height, int length, int width) throws OrderException {
+        return MapperFacade.createOrder(user, height, length, width);
+    }
 }

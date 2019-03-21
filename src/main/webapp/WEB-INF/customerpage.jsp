@@ -19,15 +19,19 @@
 
         <form name="order" action="FrontController" method="POST">
             <input type="hidden" name="command" value="order">
-            Højde:<br>
-            <input type="number" name="height">
-            Bredde:<br>
-            <input type="number" name="width">
-            Dybde:<br>
-            <input type="number" name="depth">
-            <input type="submit" value="submit">
-        </form>
+            Højde:
+            <input type="number" name="height" min="1" max="100"> <br>
+            Bredde:
+            <input type="number" name="width" min="1" max="100"><br>
+            Dybde:
+            <input type="number" name="length" min="1" max="100"> <br>
+            <input type="submit" value="Køb LEGO-hus">
+        </form> <br>
 
+        <form name="oldorders" action="FronController" method="Post">
+            <input type="hidden" name="command" value="oldorders">
+            <input type="submit" value="Se gamle ordrer">
+        </form>
 
 
     </body>

@@ -5,6 +5,7 @@
  */
 package functionlayer;
 
+import dbaccess.OrderMapper;
 import dbaccess.UserMapper;
 
 /**
@@ -22,5 +23,10 @@ public class MapperFacade {
         UserMapper.createUser(user);
         return user;
     }
-
+    
+    public static Order createOrder(User user, int height, int length, int width) throws OrderException {
+        Order order = new Order(user, height, length, width);
+        OrderMapper.createOrder(order);
+        return order;
+    }
 }
