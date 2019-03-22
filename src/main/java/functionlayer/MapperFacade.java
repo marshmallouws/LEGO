@@ -7,6 +7,7 @@ package functionlayer;
 
 import dbaccess.OrderMapper;
 import dbaccess.UserMapper;
+import java.util.ArrayList;
 
 /**
  *
@@ -28,5 +29,9 @@ public class MapperFacade {
         Order order = new Order(user, height, length, width);
         OrderMapper.createOrder(order);
         return order;
+    }
+    
+    public static ArrayList<Order> getOrders(User user) throws OrderException {
+        return OrderMapper.getOrders(user);
     }
 }

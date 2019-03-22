@@ -15,12 +15,19 @@ public class Order {
     private int height;
     private int length;
     private int width;
+    private String date;
     
     public Order(User user, int height, int length, int width) {
         this.user = user;
         this.height = height;
         this.length = length;
         this.width = width;
+    }
+    
+    public Order(User user, int height, int length, int width, int id, String date) {
+        this(user, height, length, width);
+        this.id = id;
+        this.date = date;
     }
 
     public int getId() {
@@ -45,5 +52,9 @@ public class Order {
     
     public void setId(int id) {
         this.id = id;
+    }
+    
+    public String getDate() {
+        return date;
     }
 }

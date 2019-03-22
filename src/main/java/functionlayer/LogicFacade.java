@@ -1,5 +1,6 @@
 package functionlayer;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
@@ -24,5 +25,9 @@ public class LogicFacade {
     public static HashMap<String, Integer> calculate(int height, int length, int width) {
         Calculator c = new Calculator();
         return c.calculate(height, length, width);
+    }
+    
+    public static ArrayList<Order> getOrders(User user) throws OrderException {
+        return MapperFacade.getOrders(user);
     }
 }

@@ -28,7 +28,7 @@
             <input type="submit" value="Køb LEGO-hus">
         </form> <br>
 
-        <form name="oldorders" action="FronController" method="Post">
+        <form name="oldorders" action="FrontController" method="Post">
             <input type="hidden" name="command" value="oldorders">
             <input type="submit" value="Se gamle ordrer">
         </form>

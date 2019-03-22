@@ -24,8 +24,8 @@ public class OrderMapper {
         try {
             Connector c = new Connector();
             Connection con = c.getConnection();
-            String query = "INSERT INTO l_order (userid, height, length, width) "
-                    + "VALUES (?, ?, ?, ?);";
+            String query = "INSERT INTO l_order (userid, height, length, width, o_date) "
+                    + "VALUES (?, ?, ?, ?, NOW());";
             PreparedStatement ps = con.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
             ps.setInt(1, order.getUser().getId());
             ps.setInt(2, order.getHeight());
@@ -56,11 +56,11 @@ public class OrderMapper {
             while(rs.next()) {
                 int id = rs.getInt("id");
                 int height = rs.getInt("height");
-                int length = rs.getInt("lenght");
+                int length = rs.getInt("length");
                 int width = rs.getInt("width");
+                String date = rs.getString("o_date");
                 
-                Order o = new Order(user, height, length, width);
-                o.setId(id);
+                Order o = new Order(user, height, length, width, id, date);
                 orders.add(o);
             }
             
