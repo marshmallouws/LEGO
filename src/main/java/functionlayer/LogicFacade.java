@@ -1,5 +1,7 @@
 package functionlayer;
 
+import java.util.HashMap;
+
 /**
  * The purpose of LogicFacade is to...
  *
@@ -17,5 +19,10 @@ public class LogicFacade {
     
     public static Order createOrder(User user, int height, int length, int width) throws OrderException {
         return MapperFacade.createOrder(user, height, length, width);
+    }
+    
+    public static HashMap<String, Integer> calculate(int height, int length, int width) {
+        Calculator c = new Calculator();
+        return c.calculate(height, length, width);
     }
 }

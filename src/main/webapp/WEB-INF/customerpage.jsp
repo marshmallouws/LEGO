@@ -22,9 +22,9 @@
             Højde:
             <input type="number" name="height" min="1" max="100"> <br>
             Bredde:
-            <input type="number" name="width" min="1" max="100"><br>
-            Dybde:
-            <input type="number" name="length" min="1" max="100"> <br>
+            <input type="number" name="width" min="5" max="100"><br>
+            Længde:
+            <input type="number" name="length" min="5" max="100"> <br>
             <input type="submit" value="Køb LEGO-hus">
         </form> <br>
 

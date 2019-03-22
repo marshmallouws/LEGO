@@ -27,7 +27,8 @@ public class OrderCommand extends Command {
         HttpSession session = request.getSession();
         User user = (User)session.getAttribute("user");
         Order order = LogicFacade.createOrder(user, height, length, width);
-        return user.getRole() + "page";
+        session.setAttribute("order", order);
+        return "orderconfirmation";
     }
     
 }
