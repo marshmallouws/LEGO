@@ -16,6 +16,7 @@ public class Order {
     private int length;
     private int width;
     private String date;
+    private String status;
     
     public Order(User user, int height, int length, int width) {
         this.user = user;
@@ -24,10 +25,11 @@ public class Order {
         this.width = width;
     }
     
-    public Order(User user, int height, int length, int width, int id, String date) {
+    public Order(User user, int height, int length, int width, int id, String date, String status) {
         this(user, height, length, width);
         this.id = id;
         this.date = date;
+        this.status = status;
     }
 
     public int getId() {
@@ -56,5 +58,9 @@ public class Order {
     
     public String getDate() {
         return date;
+    }
+    
+    public String getStatus() {
+        return status;
     }
 }

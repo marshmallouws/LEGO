@@ -28,6 +28,7 @@
                 <th>Højde</th>
                 <th>Længde</th>
                 <th>Bredde</th>
+                <th>Status</th>
             </tr>
             
             <%
@@ -40,6 +41,7 @@
                 <td><% out.print(o.getHeight()); %></td>
                 <td><% out.print(o.getLength()); %></td>
                 <td><% out.print(o.getWidth()); %></td>
+                <td><% out.print(o.getStatus()); %></td>
             </tr>
             <% } %>
             
