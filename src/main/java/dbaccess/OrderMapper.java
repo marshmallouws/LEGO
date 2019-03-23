@@ -117,6 +117,7 @@ public class OrderMapper {
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
+                int userid = rs.getInt("userid");
                 int id = rs.getInt("id");
                 int height = rs.getInt("height");
                 int length = rs.getInt("length");
@@ -124,7 +125,7 @@ public class OrderMapper {
                 String date = rs.getString("o_date");
                 String state = getStatus().get(rs.getInt("ma"));
                 
-                User user = new User(id);
+                User user = new User(userid);
 
                 Order o = new Order(user, height, length, width, id, date, state);
                 orders.add(o);

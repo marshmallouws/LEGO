@@ -13,7 +13,7 @@ public class Connector {
 	private static final String PORT     = "3306";
 	public  static final String DATABASE = "lego";
 	private static final String USERNAME = "root"; 
-	private static final String PASSWORD = "iamroot";	     	
+	private static final String PASSWORD = "unicorn";	     	
 	
 	public Connector() throws SQLException {
             try {
