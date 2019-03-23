@@ -59,7 +59,8 @@ public class OrderMapper {
             String query = "SELECT l_order.id, height, length, width, o_date, MAX(o_status.id) AS ma FROM l_order "
                     + "JOIN order_status ON l_order.id = orderid "
                     + "JOIN o_status ON o_status.id = order_status.statusid "
-                    + "WHERE userid = ?;";
+                    + "WHERE userid = ? "
+                    + "GROUP BY l_order.id;";
             PreparedStatement ps = con.prepareStatement(query);
             ps.setInt(1, user.getId());
             ResultSet rs = ps.executeQuery();
