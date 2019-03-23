@@ -72,7 +72,7 @@ public class OrderMapper {
                 int width = rs.getInt("width");
                 String date = rs.getString("o_date");
                 String state = getStatus().get(rs.getInt("ma"));
-                
+
                 Order o = new Order(user, height, length, width, id, date, state);
                 orders.add(o);
             }
@@ -91,8 +91,8 @@ public class OrderMapper {
             String query = "SELECT * FROM o_status;";
             PreparedStatement ps = con.prepareStatement(query);
             ResultSet rs = ps.executeQuery();
-            
-            while(rs.next()) {
+
+            while (rs.next()) {
                 int id = rs.getInt("id");
                 String state = rs.getString("state");
                 status.put(id, state);
@@ -100,7 +100,39 @@ public class OrderMapper {
         } catch (SQLException e) {
             throw new OrderException(e.getMessage());
         }
-        
+
         return status;
+    }
+
+    public static ArrayList<Order> getAllOrders() throws OrderException {
+        ArrayList<Order> orders = new ArrayList<>();
+        try {
+            Connector c = new Connector();
+            Connection con = c.getConnection();
+            String query = "SELECT userid, l_order.id, height, length, width, o_date, MAX(o_status.id) AS ma FROM l_order "
+                    + "JOIN order_status ON l_order.id = orderid "
+                    + "JOIN o_status ON o_status.id = order_status.statusid "
+                    + "GROUP BY l_order.id;";
+            PreparedStatement ps = con.prepareStatement(query);
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                int id = rs.getInt("id");
+                int height = rs.getInt("height");
+                int length = rs.getInt("length");
+                int width = rs.getInt("width");
+                String date = rs.getString("o_date");
+                String state = getStatus().get(rs.getInt("ma"));
+                
+                User user = new User(id);
+
+                Order o = new Order(user, height, length, width, id, date, state);
+                orders.add(o);
+            }
+
+        } catch (SQLException e) {
+            throw new OrderException(e.getMessage());
+        }
+        return orders;
     }
 }

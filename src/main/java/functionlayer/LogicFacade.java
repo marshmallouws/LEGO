@@ -22,12 +22,16 @@ public class LogicFacade {
         return MapperFacade.createOrder(user, height, length, width);
     }
     
-    public static HashMap<String, Integer> calculate(int height, int length, int width) {
+    public static HashMap<String, HashMap<String, Integer>> calculate(int height, int length, int width) {
         Calculator c = new Calculator();
         return c.calculate(height, length, width);
     }
     
     public static ArrayList<Order> getOrders(User user) throws OrderException {
         return MapperFacade.getOrders(user);
+    }
+    
+    public static ArrayList<Order> getAllOrders() throws OrderException {
+        return MapperFacade.getAllOrders();
     }
 }

@@ -41,15 +41,27 @@ public class CalculatorTest {
     
     @Test
     public void testCalculate() {
-        int height = 2;
-        int length = 10;
-        int width = 10;
+        int height = 7;
+        int length = 8;
+        int width = 5;
         
         Calculator c = new Calculator();
-        HashMap<String, Integer> h = c.calculate(height, length, width);
+        HashMap<String, HashMap<String, Integer>> h = c.calculate(height, length, width);
         
-        assertEquals(12, (int)h.get("2x4"));
-        assertEquals(8, (int)h.get("2x2"));
+        assertEquals(12, (int)h.get("side3").get("2x2"));
+        assertEquals(2, (int)h.get("side3").get("2x4"));
+        
+        
+        assertEquals(6, (int)h.get("side1").get("2x4"));
+        assertEquals(8, (int)h.get("side1").get("2x2"));
+        assertEquals(1, (int)h.get("side1").get("window"));
+        
+        assertEquals(7, (int)h.get("side2").get("2x4"));
+        assertEquals(7, (int)h.get("side2").get("2x1"));
+        
+        assertEquals(7, (int)h.get("side4").get("2x4"));
+        assertEquals(7, (int)h.get("side4").get("2x1"));
+        
     }
 
     // TODO add test methods here.

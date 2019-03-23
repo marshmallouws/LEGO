@@ -11,6 +11,10 @@ public class User {
         this.password = password;
         this.role = role;
     }
+    
+    public User(int id) {
+        this.id = id;
+    }
 
     private int id; // just used to demo retrieval of autogen keys in UserMapper
     private String email;

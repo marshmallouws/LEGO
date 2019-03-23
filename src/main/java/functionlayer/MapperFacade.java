@@ -34,4 +34,8 @@ public class MapperFacade {
     public static ArrayList<Order> getOrders(User user) throws OrderException {
         return OrderMapper.getOrders(user);
     }
+    
+    public static ArrayList<Order> getAllOrders() throws OrderException {
+        return OrderMapper.getAllOrders();
+    }
 }

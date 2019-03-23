@@ -26,7 +26,7 @@ public class Pieces extends Command {
         int width = Integer.parseInt(request.getParameter("width"));
         HttpSession session = request.getSession();
         //String order = request.getParameter("ordernumber");
-        HashMap<String, Integer> pieces = LogicFacade.calculate(height, length, width);
+        HashMap<String, HashMap<String, Integer>> pieces = LogicFacade.calculate(height, length, width);
         session.setAttribute("pieces", pieces);
         return "pieceslist";
     }
