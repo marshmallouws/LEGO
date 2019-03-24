@@ -48,15 +48,8 @@
                         <td><%= o.getWidth()%></td>
 
                         <td>
-
-                            <select>
-                                <option name="changestat" value="now"> <%= o.getStatus() %> </option>
-                                <option name="changestat" value="shipped">shipped</option>
-                                <option name="changestat" value="delivered">delivered</option>
-                            </select>
-
-                            <!--<a href="FrontController?orderid=<%= o.getId()%>&command=changestatus">
-                                <%= o.getStatus()%></a> -->
+                            <a href="FrontController?orderid=<%= o.getId()%>&command=changestatus&status=<%=o.getStatus()%>">
+                                <%= o.getStatus()%></a>
                         </td>
                     </tr>
                     <% }%>

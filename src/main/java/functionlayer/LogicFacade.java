@@ -34,4 +34,8 @@ public class LogicFacade {
     public static ArrayList<Order> getAllOrders() throws OrderException {
         return MapperFacade.getAllOrders();
     }
+    
+    public static void changeStatus(int orderid, String status) throws OrderException {
+        MapperFacade.changeStatus(orderid, status);
+    }
 }

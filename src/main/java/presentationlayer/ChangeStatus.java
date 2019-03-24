@@ -5,6 +5,7 @@
  */
 package presentationlayer;
 
+import functionlayer.LogicFacade;
 import functionlayer.LoginSampleException;
 import functionlayer.OrderException;
 import javax.servlet.http.HttpServletRequest;
@@ -18,6 +19,10 @@ public class ChangeStatus extends Command {
 
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException, OrderException {
+        int id = Integer.parseInt(request.getParameter("orderid"));
+        String status = request.getParameter("status");
+        LogicFacade.changeStatus(id, status);
+        return "employeepage";
         
     }
     

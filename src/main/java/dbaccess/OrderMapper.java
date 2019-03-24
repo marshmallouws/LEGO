@@ -124,7 +124,7 @@ public class OrderMapper {
                 int width = rs.getInt("width");
                 String date = rs.getString("o_date");
                 String state = getStatus().get(rs.getInt("ma"));
-                
+
                 User user = new User(userid);
 
                 Order o = new Order(user, height, length, width, id, date, state);
@@ -136,4 +136,36 @@ public class OrderMapper {
         }
         return orders;
     }
+
+    public static void changeStatus(int orderid, String status) throws OrderException { 
+        Integer i = getKey(getStatus(), status);
+        
+        if(i == null) {
+            throw new OrderException("status not found");
+        }
+        i += 1;
+
+        try {
+            Connector c = new Connector();
+            Connection con = c.getConnection();
+            String query = "INSERT INTO order_status (orderid, statusid, s_date) "
+                    + "VALUES(?, ?, NOW())";
+            PreparedStatement ps = con.prepareStatement(query);
+            ps.setInt(1, orderid);
+            ps.setInt(2, (i));
+            ps.executeUpdate();
+        } catch (SQLException ex) {
+            throw new OrderException(ex.getMessage());
+        }
+    }
+
+    private static <K, V> K getKey(HashMap<K, V> map, V value) {
+        for (HashMap.Entry<K, V> entry : map.entrySet()) {
+            if (value.equals(entry.getValue())) {
+                return entry.getKey();
+            }
+        }
+        return null;
+    }
 }
+

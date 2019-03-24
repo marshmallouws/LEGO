@@ -38,4 +38,8 @@ public class MapperFacade {
     public static ArrayList<Order> getAllOrders() throws OrderException {
         return OrderMapper.getAllOrders();
     }
+    
+    public static void changeStatus(int orderid, String status) throws OrderException {
+        OrderMapper.changeStatus(orderid, status);
+    }
 }
