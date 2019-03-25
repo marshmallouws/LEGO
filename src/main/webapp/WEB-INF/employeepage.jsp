@@ -29,7 +29,6 @@
                 <th>Længde</th>
                 <th>Bredde</th>
                 <th>Status</th>
-                <th>Ændre status</th>
                 </thead>
                 <tbody>
                     <%
@@ -80,5 +79,10 @@
                 }
             }
         </script>
+        <br>
+        <form name="logout" action="FrontController">
+            <input type="hidden" name="command" value="logout">
+            <input type="submit" value="log ud">
+        </form>
     </body>
 </html>

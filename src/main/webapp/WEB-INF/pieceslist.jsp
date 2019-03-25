@@ -8,7 +8,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <% HashMap<String, HashMap<String, Integer>> h = (HashMap)session.getAttribute("pieces"); %>
+    <% HashMap<String, HashMap<String, Integer>> h = (HashMap) session.getAttribute("pieces"); %>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Stykliste</title>
@@ -45,5 +45,10 @@
                 <td><%= h.get("side4").get("2x1")%></td>
             </tr>
         </table>
+        <br>
+        <form name="back" action="FrontController">
+            <input type="hidden" name="command" value="back">
+            <input type="submit" value="tilbage til forside">
+        </form>
     </body>
 </html>

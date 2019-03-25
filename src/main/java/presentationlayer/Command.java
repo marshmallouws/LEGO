@@ -18,6 +18,8 @@ abstract class Command {
         commands.put("oldorders", new OrderList());
         commands.put("pieceslist", new Pieces());
         commands.put("changestatus", new ChangeStatus());
+        commands.put("logout", new Logout());
+        commands.put("back", new Back());
     }
 
     static Command from(HttpServletRequest request) {

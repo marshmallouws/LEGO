@@ -23,7 +23,7 @@ public class UserMapper {
         try {
             Connector c = new Connector();
             Connection con = c.getConnection();
-            String query = "INSERT INTO user (email, password, rode) VALUES (?, ?, ?)";
+            String query = "INSERT INTO user (email, password, role) VALUES (?, ?, ?)";
             PreparedStatement ps = con.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
             
             ps.setString(1, user.getEmail());

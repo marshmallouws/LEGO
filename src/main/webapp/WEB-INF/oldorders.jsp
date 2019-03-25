@@ -23,32 +23,36 @@
         <h1>Tidligere ordrer</h1>
         <table>
             <thead>
-                <th>Id</th>
-                <th>Dato</th>
-                <th>Højde</th>
-                <th>Længde</th>
-                <th>Bredde</th>
-                <th>Status</th>
-            </thead>
-            <tbody>
-                <%
-                    for (Order o : orders) {
-                %>
+            <th>Id</th>
+            <th>Dato</th>
+            <th>Højde</th>
+            <th>Længde</th>
+            <th>Bredde</th>
+            <th>Status</th>
+        </thead>
+        <tbody>
+            <%
+                for (Order o : orders) {
+            %>
 
-                <tr>
-                    <td>
-                        <a href="FrontController?height=<%= o.getHeight() %>&length=<%=o.getLength()%>&width=<%= o.getWidth() %>&ordernumber=<%= o.getId() %>&command=pieceslist">
-                            <%out.print(o.getId()); %></a>
-                    </td>
-                    <td><% out.print(o.getDate()); %></td>
-                    <td><% out.print(o.getHeight()); %></td>
-                    <td><% out.print(o.getLength()); %></td>
-                    <td><% out.print(o.getWidth()); %></td>
-                    <td><% out.print(o.getStatus()); %></td>
-                </tr>
-                <% }%>
-            </tbody>
-        </table>
-
-    </body>
+            <tr>
+                <td>
+                    <a href="FrontController?height=<%= o.getHeight()%>&length=<%=o.getLength()%>&width=<%= o.getWidth()%>&ordernumber=<%= o.getId()%>&command=pieceslist">
+                        <%out.print(o.getId()); %></a>
+                </td>
+                <td><% out.print(o.getDate()); %></td>
+                <td><% out.print(o.getHeight()); %></td>
+                <td><% out.print(o.getLength()); %></td>
+                <td><% out.print(o.getWidth()); %></td>
+                <td><% out.print(o.getStatus()); %></td>
+            </tr>
+            <% }%>
+        </tbody>
+    </table>
+    <br>
+    <form name="back" action="FrontController">
+        <input type="hidden" name="command" value="back">
+        <input type="submit" value="tilbage til forside">
+    </form>
+</body>
 </html>

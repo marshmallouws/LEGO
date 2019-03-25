@@ -9,8 +9,8 @@
 <%@page import="functionlayer.LogicFacade"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<%  Order order = (Order)session.getAttribute("order");
-    HashMap<String, HashMap<String, Integer>> h = LogicFacade.calculate(order.getHeight(), order.getLength(), order.getWidth()); %>
+<%  Order order = (Order) session.getAttribute("order");
+    HashMap<String, HashMap<String, Integer>> h = LogicFacade.calculate(order.getHeight(), order.getLength(), order.getWidth());%>
 
 <html>
     <head>
@@ -18,8 +18,8 @@
         <title>Orderbekræftelse</title>
     </head>
     <body>
-        <h1>Ordre nummer <%=order.getId() %> er nu gennemført</h1>
-        
+        <h1>Ordre nummer <%=order.getId()%> er nu gennemført</h1>
+
         <table>
             <tr>
                 <th>type</th>
@@ -50,5 +50,10 @@
                 <td><%= h.get("side4").get("2x1")%></td>
             </tr>
         </table>
+        <br>
+        <form name="back" action="FrontController">
+            <input type="hidden" name="command" value="back">
+            <input type="submit" value="tilbage til forside">
+        </form>
     </body>
 </html>
