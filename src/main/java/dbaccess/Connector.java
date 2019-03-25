@@ -9,11 +9,11 @@ public class Connector {
 	private Connection connection = null;
 	
 	//Constants
-	private static final String IP	     = "localhost";
+	private static final String IP	     = "157.230.21.82";
 	private static final String PORT     = "3306";
 	public  static final String DATABASE = "lego";
-	private static final String USERNAME = "root"; 
-	private static final String PASSWORD = "iamroot";	     	
+	private static final String USERNAME = "lego"; 
+	private static final String PASSWORD = "iamlego";	     	
 	
 	public Connector() throws SQLException {
             try {
